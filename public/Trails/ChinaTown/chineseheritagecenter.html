@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="../../scripts/code.js"></script>
+  </head>
+  <body>
+
+    <!-- <nav class="level">
+      <a class="level-item level-left" href="https://nixonchew.github.io/fypj/main.html">
+        <img src="../assets/back-arrow-svgrepo-com.svg" width="30" height="30" alt="">
+      </a>
+      <h1 class="level-item has-text-centered"> Chinese Clan Association</h1>
+    </nav> -->
+
+  <section class="section">
+    <div class="container">
+      <a class="navbar-brand" href="https://nixonchew.github.io/fypj/main.html">
+        <img src="../assets/back-arrow-svgrepo-com.svg" width="30" height="30" alt="">
+      </a>
+
+      <h1 class="title has-text-centered">
+        Chinese Heritage Centre
+      </h1>
+      <div class="content">
+          <p id="textContent">
+            On the outside, it looks like just another shophouse. Step inside and you’ll be transported back in time when Singapore was just a seaport where poverty, hard labour and grim living conditions were the norm.
+            There are immersive audio tours and interactive exhibits to help you retrace the footsteps of migrants in the late 19th century. Back then, Chinatown was infamously filled with seedy brothels, squalid opium houses, illegal gambling dens and notorious secret societies.
+
+          </p>
+      </div>
+    <div class="field">
+        <button class="button is-dark is-pulled-right" id="button_complete">Next</button>
+    </div>
+    <div class="field">
+      <img class="image is-64x64" id="speaker" src="../assets/125-1258034_free-download-and-vector-speaker-icon-animated-gif-removebg-preview.png" alt="">
+    </div>
+    </div>
+
+  </section>
+
+<!--this is for the pop up-->
+<div id = "congraztPage" title="You have completed the trail" class="modal" style="display: none;background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);position: fixed;z-index: 1;left: 0;top: 0;width: 100%;height: 100%;text-align: center;">
+  <span id="popup" class="close" style="color: #aaa;color: #aaa;font-size: 28px;font-weight: bold;">&times;</span>
+  <div id = "content" style="background-color: #fefefe;margin: 15% auto; /* 15% from the top and centered */padding: 20px;border: 1px solid #888;width: 80%; ">
+  <h1 class="is-size-5">Next On The Trail!</h1>
+  <h2 class="is-size-3">Sri Mariamman Temple</h2>
+  <br>
+  <div id="qr" style="display:inline-block; min-width:0.7cm; height:0.5cm; align: center;vertical-align: middle;" >
+    <img src="../assets/map_Image.png" style="height:0.5cm; length:0.5cm;">
+  </div>
+  <div style="display:inline-block;vertical-align: middle;">
+    :200m
+  </div>
+  <div id="qr" style="display:inline-block; min-width:0.7cm; height:0.5cm; align: center;vertical-align: middle;" >
+    <img src="../assets/time.png" style="height:0.5cm; length:0.5cm;">
+  </div>
+  <div style="display:inline-block;vertical-align: middle;">
+    :5mins
+  </div>
+  <br>
+  <br>
+  <p>This hindu temple is the oldest and largest of its kind in singapore</p>
+  <br>
+  <button class="button is-dark" id="complete_testin" style="margin-top:auto;">Continue</button>
+
+</div>
+</div>
+
+
+
+  </body>
+
+<script>
+  var modal = document.getElementById("congraztPage")
+var span = document.getElementsByClassName("close")[0];
+var btn = document.getElementById("button_complete");
+var speaker = document.getElementById("speaker");
+var textSentance = document.getElementById("textContent");
+console.log(textSentance.textContent);
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+speaker.onclick = function(){
+
+  let utterance = new SpeechSynthesisUtterance(textSentance.textContent);
+  speechSynthesis.speak(utterance);
+}
+
+
+
+</script>
+
+<style>
+  #content {
+    border-radius: 25px;
+    padding: 20px;
+  }
+  
+  
+</style>
+
+</html>
